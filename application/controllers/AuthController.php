@@ -47,11 +47,11 @@ class AuthController extends CI_Controller {
             
             $token = $jwt->encode($data,$jwtsecretkey,'HS256');
 
-			// $output = $this->session->set_userdata('user', $data);
+			$output = $this->session->set_userdata('user', $data);
 			$output['message'] = 'Logging in';
 			$output['id'] = $user_data['id'];
 			$output['token'] = $token;
-			// $output['all_data'] = $data;
+			$output['all_data'] = $data;
 		}
 		else{
 			$output['error'] = true;
